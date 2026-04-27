@@ -452,7 +452,7 @@ func ConvertTransaction(geyserTx *yellowstone_geyser_pb.SubscribeUpdateTransacti
 		tx.Meta.InnerInstructions = append(tx.Meta.InnerInstructions, rpc.InnerInstruction{})
 		tx.Meta.InnerInstructions[i].Index = uint16(innerInst.Index)
 		for x, inst := range innerInst.Instructions {
-			tx.Meta.InnerInstructions[i].Instructions = append(tx.Meta.InnerInstructions[i].Instructions, solana.CompiledInstruction{})
+			tx.Meta.InnerInstructions[i].Instructions = append(tx.Meta.InnerInstructions[i].Instructions, rpc.CompiledInstruction{})
 			accounts, err := bytesToUint16Slice(inst.Accounts)
 			if err != nil {
 				return nil, err
